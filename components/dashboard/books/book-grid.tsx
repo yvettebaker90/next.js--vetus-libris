@@ -5,28 +5,28 @@ export default function BookGrid() {
     {
       title: "The Silent Patient",
       author: "Alex Michaelides",
-      image: "/",
+      image: "/profile_picture.svg",
     },
     {
       title: "Dune",
       author: "Frank Herbert",
-      image: "/",
+      image: "/profile_picture.svg",
     },
     {
         title: "The Night Circus",
         author: "Erin Morgenstern",
-        image: "/",
+        image: "/profile_picture.svg",
     },
     { title: "The Great Gatsby",
         author: "F. Scott Fitzgerald",
-        image: "/",
+        image: "/profile_picture.svg",
     },
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-6">
-      {books.map((book, index) => (
-        <BookCard key={index} {...book} />
+    <div className="grid grid-cols-4 gap-10">
+      {books.map((book) => (
+        <BookCard key={book.title} {...book} />
       ))}
     </div>
   );

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between gap-6 border-b px-6 py-4">
+    <header className="flex items-center justify-between gap-6 px-6 py-4">
       
       <div className="flex-1 max-w-2xl">
         <div className="h-11 w-full rounded-xl border bg-zinc-50 px-4 flex items-center">

@@ -8,7 +8,7 @@ export default function DashboardLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="min-h-screen grid grid-cols-[240px_1fr]">
+    <div className="min-h-screen grid grid-cols-[300px_1fr]">
 
       {/* Sidebar */}
       <Sidebar />
@@ -16,7 +16,7 @@ export default function DashboardLayout({
       {/* Content area */}
       <div className="flex flex-col">
         <Header />
-        <main className="flex-1 p-6 bg-zinc-50">
+        <main className="flex-1 p-6">
           {children}
         </main>
       </div>
