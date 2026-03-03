@@ -1,3 +1,9 @@
+import BookGrid from "@/components/dashboard/books/book-grid";
+
 export default function DashboardPage() {
-  return <h1>Dashboard</h1>;
+  return (
+    <div>
+        <BookGrid />
+    </div>
+  )
 }

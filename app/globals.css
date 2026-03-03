@@ -7,6 +7,7 @@
   --button: #ffb700;       /* Button */
   --card-title: #ffb700;   /* Card title color */
   --nav-active: #2a4a3c;   /* Active nav background */
+  --card-bg: #2a4a3c;       /* Card background color */
 }
 
 @theme inline {
@@ -15,6 +16,7 @@
   --color-button: var(--button);
   --color-card-title: var(--card-title);
   --color-nav-active: var(--nav-active);
+  --color-card-bg: var(--card-bg);
 
   /* Låt dessa vara tills fonterna byts ut i layout.tsx */
   --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
