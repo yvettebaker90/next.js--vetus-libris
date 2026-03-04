@@ -1,33 +1,23 @@
 import BookCard from "@/components/dashboard/books/book-card";
+import { getBooks } from "@/lib/gutendex";
 
-export default function BookGrid() {
-  const books = [
-    {
-      title: "The Silent Patient",
-      author: "Alex Michaelides",
-      image: "/profile_picture.svg",
-    },
-    {
-      title: "Dune",
-      author: "Frank Herbert",
-      image: "/profile_picture.svg",
-    },
-    {
-        title: "The Night Circus",
-        author: "Erin Morgenstern",
-        image: "/profile_picture.svg",
-    },
-    { title: "The Great Gatsby",
-        author: "F. Scott Fitzgerald",
-        image: "/profile_picture.svg",
-    },
-  ];
+const placeholderImage = "@/public/placeholder_cover.png";
+
+export default async function BookGrid() {
+  const books = await getBooks();
 
   return (
     <div className="grid grid-cols-4 gap-10">
-      {books.map((book) => (
-        <BookCard key={book.title} {...book} />
+      {books.results.map((book: any) => (
+        <BookCard 
+          key={book.id}
+          title={book.title}
+          author={book.authors?.[0]?.name ?? "Unknown Author"}
+          image={book.formats?.["image/jpeg"] ?? placeholderImage}
+          />
       ))}
     </div>
   );
 }
+
+// placeholder image: https://pixabay.com/illustrations/ribbon-bookmark-education-school-1202756/
