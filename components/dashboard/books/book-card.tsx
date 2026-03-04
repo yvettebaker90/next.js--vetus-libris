@@ -8,7 +8,7 @@ type BookCardProps = {
 
 export default function BookCard({ title, author, image }: BookCardProps) {
   return (
-    <div className="rounded-xl bg-card-bg p-4 shadow-md">
+    <div className="rounded-xl bg-card-bg p-4 shadow-md bg-card-bg">
       <div className="relative h-48 w-full overflow-hidden rounded-lg">
         <Image
           src={image}
