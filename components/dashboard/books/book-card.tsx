@@ -8,8 +8,8 @@ type BookCardProps = {
 
 export default function BookCard({ title, author, image }: BookCardProps) {
   return (
-    <div className="rounded-xl bg-card-bg p-4 shadow-md bg-card-bg">
-      <div className="relative h-48 w-full overflow-hidden rounded-lg">
+    <div className="rounded-xl shadow-md bg-card-bg">
+      <div className="relative aspect-[2/3] rounded-xl overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -17,9 +17,9 @@ export default function BookCard({ title, author, image }: BookCardProps) {
           className="object-cover"
         />
       </div>
-
-      <h3 className="mt-4 font-semibold text-lg text-card-title">{title}</h3>
-      <p className="text-sm text-white">{author}</p>
+        <div className="px-4">
+        <h3 className="mt-2 font-semibold text-xl text-card-title">{title}</h3>
+        <p className="text-sm text-white mb-4 mt-2">{author}</p></div>
     </div>
   );
 }

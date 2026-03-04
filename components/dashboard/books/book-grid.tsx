@@ -7,7 +7,7 @@ export default async function BookGrid() {
   const books = await getBooks();
 
   return (
-    <div className="grid grid-cols-4 gap-10">
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-12">
       {books.results.map((book: any) => (
         <BookCard 
           key={book.id}
