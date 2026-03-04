@@ -7,6 +7,7 @@ export default async function BookGrid() {
   const books = await getBooks();
 
   return (
+    <div className="px-35 py-15">
     <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-12">
       {books.results.map((book: any) => (
         <BookCard 
@@ -16,6 +17,7 @@ export default async function BookGrid() {
           image={book.formats?.["image/jpeg"] ?? placeholderImage}
           />
       ))}
+    </div>
     </div>
   );
 }
