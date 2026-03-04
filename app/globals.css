@@ -11,19 +11,24 @@
 }
 
 @theme inline {
+
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-button: var(--button);
   --color-card-title: var(--card-title);
   --color-nav-active: var(--nav-active);
   --color-card-bg: var(--card-bg);
-
-  /* Låt dessa vara tills fonterna byts ut i layout.tsx */
-  --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  
+  /* Fonts */
+  --font-cinzel: var(--font-cinzel);
+  --font-playfair: var(--font-playfair);
+  --font-raleway: var(--font-raleway);
+  --font-montserrat: var(--font-montserrat);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-raleway), sans-serif;
 }
