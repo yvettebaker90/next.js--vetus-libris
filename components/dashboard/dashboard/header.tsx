@@ -8,9 +8,9 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <header className="flex items-center justify-between gap-6 px-6 py-4">
+    <header className="grid grid-flow-col justify-items-end px-6 py-4 mt-2">
       
-      <div className="flex-1 max-w-2xl">
+      <div className="flex-1 min-w-2xl">
         <div>
           <Searchbar />
         </div>
