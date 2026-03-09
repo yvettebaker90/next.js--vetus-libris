@@ -7,7 +7,6 @@ export default function SearchBar() {
   const router = useRouter();
 
   const [query, setQuery] = useState("");
-  const [type] = useState("title");
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,7 +19,7 @@ export default function SearchBar() {
     }
 
     router.push(
-      `/dashboard?query=${encodeURIComponent(trimmedQuery)}&type=${type}`
+      `/dashboard?query=${encodeURIComponent(trimmedQuery)}`
     );
   }
 
