@@ -1,9 +1,25 @@
 import BookGrid from "@/components/dashboard/books/book-grid";
+import SearchResults from "@/components/dashboard/searchbar/search-result";
 
-export default function DashboardPage() {
+type Props = {
+  searchParams: Promise<{
+    query?: string;
+    type?: string;
+  }>;
+};
+
+export default async function DashboardPage({ searchParams }: Props) {
+  const params = await searchParams;
+  const query = params?.query;
+  const type = params?.type;
+
   return (
-    <div>
+    <div className="space-y-6">
+      {query ? (
+        <SearchResults query={query} type={type} />
+      ) : (
         <BookGrid />
+      )}
     </div>
-  )
+  );
 }
