@@ -10,33 +10,51 @@ type Props = {
 
 export default async function SearchResults({ query, type }: Props) {
   const data = await getBooks(query, type);
+  const count = data.results.length;
 
-  if (!data.results.length) {
   return (
-    <div className="text-center py-20 text-lg">
-      <span className="font-bold">We searched every dusty shelf… nothing!</span>
-      <p className="text-sm mt-2 text-gray-300">
-        Even the librarians are confused by that search.<br />
-        Try again and better<br />
-        <span className="text-xl">🧐</span>
+    <div className="px-35 py-15 text-center">
+      <p className="mb-8 text-sm text-gray-300">
+        {count === 0 ? (
+          <>
+            The archives found absolutely{" "}
+            <span className="underline italic">nothing</span> for{" "}
+            <span className="font-semibold">"{query}"</span>.
+          </>
+        ) : (
+          <>
+            The librarians managed to dig up {count} book{count !== 1 ? "s" : ""} for "{query}".
+          </>
+        )}
       </p>
-    </div>
-  );
-}
 
-  return (
-    <div className="px-35 py-15">
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-12">
-        {data.results.map((book: any) => (
-          <BookCard
-            key={book.id}
-            id={book.id}
-            title={book.title}
-            author={book.authors?.[0]?.name ?? "Unknown Author"}
-            image={book.formats?.["image/jpeg"] ?? placeholderImage}
-          />
-        ))}
-      </div>
+      {count === 0 ? (
+        <div className="py-16 text-lg">
+          <span className="font-bold">
+            We searched every dusty shelf… nothing!
+          </span>
+
+          <p className="mt-2 text-sm text-gray-300">
+            Even the librarians are confused by that search.
+            <br />
+            Try again and better.
+            <br />
+            <span className="text-xl">🧐</span>
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-12 text-left">
+          {data.results.map((book: any) => (
+            <BookCard
+              key={book.id}
+              id={book.id}
+              title={book.title}
+              author={book.authors?.[0]?.name ?? "Unknown Author"}
+              image={book.formats?.["image/jpeg"] ?? placeholderImage}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
