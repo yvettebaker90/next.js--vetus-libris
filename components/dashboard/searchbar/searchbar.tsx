@@ -19,8 +19,8 @@ export default function SearchBar() {
     }
 
     router.push(
-      `/dashboard?query=${encodeURIComponent(trimmedQuery)}`
-    );
+      `/dashboard?query=${encodeURIComponent(trimmedQuery)}`);
+      setQuery("");
   }
 
   return (
