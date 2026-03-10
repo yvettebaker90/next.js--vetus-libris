@@ -2,21 +2,14 @@
 
 import Image from "next/image";
 import Searchbar from "@/components/dashboard/searchbar/searchbar";
-import { useState } from "react";
 
 export default function Header() {
-  const [searchQuery, setSearchQuery] = useState("");
-
   return (
     <header className="grid grid-flow-col justify-items-end gap-6 px-6 py-4 mt-2">
-      
       <div className="flex-1 min-w-2xl">
-        <div>
-          <Searchbar />
-        </div>
+        <Searchbar />
       </div>
 
-      {/* Profile */}
       <div className="relative h-15 w-15 overflow-hidden rounded-full">
         <Image
           src="/profile_picture.svg"

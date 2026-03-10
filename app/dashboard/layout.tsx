@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Sidebar from "@/components/dashboard/dashboard/sidebar";
 import Header from "@/components/dashboard/dashboard/header";
+import { BookmarkProvider } from "@/lib/bookmark-context";
 
 export default function DashboardLayout({
   children,
@@ -8,18 +9,15 @@ export default function DashboardLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="min-h-screen grid grid-cols-[300px_1fr]">
+    <BookmarkProvider>
+      <div className="min-h-screen grid grid-cols-[300px_1fr]">
+        <Sidebar />
 
-      {/* Sidebar */}
-      <Sidebar />
-
-      {/* Content area */}
-      <div className="flex flex-col">
-        <Header />
-        <main className="flex-1 p-6">
-          {children}
-        </main>
+        <div className="flex flex-col">
+          <Header />
+          <main className="flex-1 p-6">{children}</main>
+        </div>
       </div>
-    </div>
+    </BookmarkProvider>
   );
 }
