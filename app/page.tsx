@@ -1,12 +1,14 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center">
-      <a
+      <Link
         href="/dashboard"
         className="text-lg font-semibold underline"
       >
         Go to Dashboard
-      </a>
+      </Link>
     </main>
   );
 }
