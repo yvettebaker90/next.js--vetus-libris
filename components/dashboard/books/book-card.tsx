@@ -28,11 +28,12 @@ export default function BookCard({ id, title, author, image }: BookCardProps) {
       
       {/* Bookmark button */}
       <button
+        title="Toggle bookmark"
         type="button"
         onClick={handleBookmark}
         className="absolute right-3 top-3 z-10 rounded-full bg-white p-2 shadow cursor-pointer"
       >
-        <Bookmark className={`h-5 w-5 ${bookmarked ? "text-yellow-500 fill-current" : "text-gray-400"}`} />
+        <Bookmark className={`h-6 w-6 ${bookmarked ? "text-yellow-500 fill-current" : "text-gray-900"}`} />
       </button>
 
       <div className="relative aspect-[2/3] rounded-t-sm overflow-hidden">
