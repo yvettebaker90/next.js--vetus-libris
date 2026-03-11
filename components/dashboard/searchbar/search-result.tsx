@@ -14,7 +14,7 @@ export default async function SearchResults({ query, type }: Props) {
 
   return (
     <div className="px-35 py-15 text-center">
-      <p className="mb-8 text-sm text-gray-300">
+      <p className="mb-8 text-lg text-gray-300">
         {count === 0 ? (
           <>
             The archives found absolutely{" "}
@@ -29,12 +29,12 @@ export default async function SearchResults({ query, type }: Props) {
       </p>
 
       {count === 0 ? (
-        <div className="py-16 text-lg">
-          <span className="font-bold">
+        <div className="py-16">
+          <span className="font-bold text-xl">
             We searched every dusty shelf… nothing!
           </span>
 
-          <p className="mt-2 text-sm text-gray-300">
+          <p className="mt-2 text-md text-gray-300">
             Even the librarians are confused by that search.
             <br />
             Try again and better.

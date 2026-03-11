@@ -8,9 +8,9 @@ export default function BookmarksPage() {
 
   if (bookmarks.length === 0) {
   return (
-    <div className="text-center py-20 text-lg">
-      <span className="font-bold">Your bookmark shelf is empty...</span>
-      <p className="text-sm mt-2 text-gray-300">
+    <div className="text-center py-20">
+      <span className="font-bold text-xl">Your bookmark shelf is empty...</span>
+      <p className="text-md mt-2 text-gray-300">
         ...and we're disappointed.<br />
         What are you even doing here? <br />
         Go and find a book worth bookmarking asap.<br />
