@@ -48,6 +48,8 @@ export default async function BookGrid({ page = 1, sort = "default" }: Props) {
             title={book.title}
             author={book.authors?.[0]?.name ?? "Unknown Author"}
             image={book.formats?.["image/jpeg"] ?? placeholderImage}
+            genre={book.subjects?.[0] ?? "Unknown genre"}
+            description={book.summaries?.[0] ?? "No summary available."}
           />
         ))}
       </div>

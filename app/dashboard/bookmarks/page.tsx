@@ -21,8 +21,9 @@ export default function BookmarksPage() {
 }
 
   return (
-    <div className="px-35 py-15">
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-12">
+    <div className="px-4 py-15">
+      <h1 className="text-2xl font-semibold mb-8 font-montserrat">Your bookmarks</h1>
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-12">
         {bookmarks.map((book) => (
           <BookCard
             key={book.id}
