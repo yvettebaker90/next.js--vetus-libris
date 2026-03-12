@@ -79,7 +79,7 @@ export default function BookDetails({
             <button 
               type="button" 
               className="mt-6 rounded-lg bg-button px-4 py-2 font-semibold text-black border border-button hover:bg-white transition-colors">
-              Read book
+              Read book →
             </button>
             <button 
   type="button"
