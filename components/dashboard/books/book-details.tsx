@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
+import { BookOpen } from "lucide-react";
 
 type BookDetailsProps = {
   title: string;
@@ -36,7 +37,7 @@ export default function BookDetails({
       onClick={onClose}
     >
       <div
-        className="relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl md:flex-row md:gap-8"
+        className="relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl md:flex-row md:gap-8"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -53,25 +54,40 @@ export default function BookDetails({
             src={image}
             alt={title}
             fill
-            className="rounded-lg object-contain bg-gray-100"
+            className="rounded-md object-cover"
           />
         </div>
 
         <div className="flex flex-col text-black">
           <h2 className="mb-2 text-3xl font-bold">{title}</h2>
-          <p className="mb-2 text-lg font-medium">{author}</p>
+          <hr className="mb-2 border-card-title"/>
+          <p className="mb-2 font-medium">{author}</p>
 
           {genre && (
-            <p className="mb-4">
+            <p className="mb-2">
               <span className="font-semibold">Genre:</span> {genre}
             </p>
           )}
 
           <div>
-            <h3 className="mb-2 text-xl font-semibold">Summary:</h3>
+            <h3 className="mb-2 font-semibold">Summary:</h3>
             <p className="leading-7 text-gray-700">
               {description || "No summary available."}
             </p>
+          </div>
+          <div className="mt-auto flex justify-end">
+            <button 
+              type="button" 
+              className="mt-6 rounded-lg bg-button px-4 py-2 font-semibold text-black border border-button hover:bg-white transition-colors">
+              Read book
+            </button>
+            <button 
+  type="button"
+  className="ml-2 mt-6 flex items-center gap-2 rounded-lg bg-nav-active px-4 py-2 font-semibold text-white border border-nav-active hover:bg-white hover:text-black transition-colors"
+>
+  <BookOpen size={18} />
+  Add to collection
+</button>
           </div>
         </div>
       </div>
