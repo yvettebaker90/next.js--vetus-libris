@@ -40,6 +40,9 @@ export default async function BookGrid({ page = 1, sort = "default" }: Props) {
 
   return (
     <div className="px-4 py-15">
+      <h1 className="mb-8 font-montserrat text-2xl font-semibold">
+        All books in the library
+      </h1>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-6">
         {sortedBooks.map((book: any) => (
           <BookCard

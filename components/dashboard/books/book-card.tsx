@@ -36,20 +36,30 @@ export default function BookCard({
       title,
       author,
       image,
+      description,
+      genre
     });
   }
 
   return (
     <>
       <div
+        role="button"
+        tabIndex={0}
         onClick={() => setIsOpen(true)}
-        className="relative cursor-pointer rounded-sm bg-gray-100 px-2 py-2 shadow-md"
-      >
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setIsOpen(true);
+          }
+        }}
+        className="relative cursor-pointer rounded-sm bg-gray-100 px-1 py-1 shadow-md"
+>
         <button
           type="button"
           title="Bookmark"
           onClick={handleBookmark}
-          className="absolute right-3 top-3 z-10 rounded-full bg-white p-2 shadow cursor-pointer"
+          className="absolute right-2 top-2 z-10 rounded-full bg-white p-2 shadow cursor-pointer"
         >
           <Bookmark
             className={`h-5 w-5 ${
@@ -58,7 +68,7 @@ export default function BookCard({
           />
         </button>
 
-        <div className="relative aspect-[2/3] overflow-hidden rounded-t-sm">
+        <div className="relative aspect-[3/4] overflow-hidden rounded-t-sm">
           <Image
             src={image}
             alt={title}
@@ -69,7 +79,7 @@ export default function BookCard({
 
         <div className="ml-2 mt-2 min-w-0">
           <p
-            className="line-clamp-2 cursor-help text-md font-bold text-black"
+            className="line-clamp-2 text-md font-bold text-black"
             title={title}
           >
             {title}

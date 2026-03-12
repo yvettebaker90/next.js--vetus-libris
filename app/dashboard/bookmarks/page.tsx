@@ -29,7 +29,7 @@ export default function BookmarksPage() {
         Your bookmarks
       </h1>
 
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-12">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-12">
         {bookmarks.map((book) => (
           <BookCard
             key={book.id}
