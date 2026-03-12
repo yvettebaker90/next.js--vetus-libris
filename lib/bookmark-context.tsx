@@ -1,12 +1,14 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type Book = {
   id: number;
   title: string;
   author: string;
   image: string;
+  description?: string;
+  genre?: string;
 };
 
 type BookmarkContextType = {
@@ -23,6 +25,23 @@ export function BookmarkProvider({
   children: React.ReactNode;
 }) {
   const [bookmarks, setBookmarks] = useState<Book[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const storedBookmarks = localStorage.getItem("bookmarks");
+
+    if (storedBookmarks) {
+      setBookmarks(JSON.parse(storedBookmarks));
+    }
+
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded) {
+      localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    }
+  }, [bookmarks, isLoaded]);
 
   function toggleBookmark(book: Book) {
     setBookmarks((prev) => {

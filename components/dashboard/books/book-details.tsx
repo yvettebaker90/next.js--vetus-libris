@@ -1,24 +1,97 @@
-import Image from "next/image";
+"use client";
 
-export default function BookDetails() {
-  return (
-    <div className="flex flex-col items-center bg-neutral-primary-soft p-6 rounded shadow-xs md:flex-row md:max-w-xl md:flex-row md:max-w-xl bg-white">
-        <Image className="object-cover rounded-base md:h-auto md:w-48 mb-4 md:mb-0" src="/placeholder_cover.png" alt="Book Cover"
-        width={100}
-        height={100} />
-        <div className="flex flex-col justify-between md:p-4 leading-normal text-black">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-heading">Booktitle</h5>
-            <p className="text-body font-semibold">Author</p>
-            <p className="text-body font-semibold">Published</p>
-            <p className="text-body font-semibold">Genre</p>
-            <p className="text-body font-semibold">Description</p>
-            <div>
-                <button type="button" className="inline-flex items-center w-auto text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
-                    Read book
-                    <svg className="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/></svg>
-                </button>
-            </div>
+import Image from "next/image";
+import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
+import { BookOpen } from "lucide-react";
+
+type BookDetailsProps = {
+  title: string;
+  author: string;
+  image: string;
+  genre?: string;
+  description?: string;
+  onClose: () => void;
+};
+
+export default function BookDetails({
+  title,
+  author,
+  image,
+  genre,
+  description,
+  onClose,
+}: BookDetailsProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
+
+  if (!mounted) return null;
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 p-4"
+      onClick={onClose}
+    >
+      <div
+        className="relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl md:flex-row md:gap-8"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute right-4 top-4 text-2xl text-black cursor-pointer"
+          aria-label="Close modal"
+        >
+          ×
+        </button>
+
+        <div className="relative mx-auto mb-4 h-[360px] w-[240px] shrink-0 md:mb-0 md:h-[460px] md:w-[300px]">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="rounded-md object-cover"
+          />
         </div>
-    </div>
+
+        <div className="flex flex-col text-black">
+          <h2 className="mb-2 text-3xl font-bold">{title}</h2>
+          <hr className="mb-2 border-card-title"/>
+          <p className="mb-2 font-medium">{author}</p>
+
+          {genre && (
+            <p className="mb-2">
+              <span className="font-semibold">Genre:</span> {genre}
+            </p>
+          )}
+
+          <div>
+            <h3 className="mb-2 font-semibold">Summary:</h3>
+            <p className="leading-7 text-gray-700">
+              {description || "No summary available."}
+            </p>
+          </div>
+          <div className="mt-auto flex justify-end">
+            <button 
+              type="button" 
+              className="mt-6 rounded-lg bg-button px-4 py-2 font-semibold text-black border border-button hover:bg-white transition-colors">
+              Read book →
+            </button>
+            <button 
+  type="button"
+  className="ml-2 mt-6 flex items-center gap-2 rounded-lg bg-nav-active px-4 py-2 font-semibold text-white border border-nav-active hover:bg-white hover:text-black transition-colors"
+>
+  <BookOpen size={18} />
+  Add to collection
+</button>
+          </div>
+        </div>
+      </div>
+    </div>,
+    document.body
   );
 }
