@@ -2,7 +2,7 @@
 
 Vetus Libris is a digital library dashboard built with Next.js and TypeScript that allows users to explore, search and organize books from the Project Gutenberg API.
 
-The project focuses on practicing a clean and structured frontend architecture while working with real API data. Users can browse a large catalogue of public domain books, sort results, search for specific titles and bookmark books for later reading.
+The project focuses on practicing a clean and structured frontend architecture while working with real API data. Users can browse a large catalogue of public domain books, sort results, search for specific titles and authors and bookmark books for later reading.
 
 The application is still a work in progress, but it already includes features such as search, sorting and bookmarking. It also demonstrates concepts like component-based design, API integration and React Context to manage bookmarked books in the application.
 
