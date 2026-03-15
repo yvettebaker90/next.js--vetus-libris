@@ -1,16 +1,18 @@
-# Vetus Libris
+# 📚 Vetus Libris
 
-Vetus Libris is a digital library dashboard built with Next.js and TypeScript that allows users to explore, search and organize books from the Project Gutenberg archive.
+Vetus Libris is a digital library dashboard built with Next.js and TypeScript that allows users to explore, search and organize books from the Project Gutenberg API.
 
-The application focuses on creating a clean and structured frontend architecture while working with real API data. Users can browse a large catalogue of public domain books, sort results, search for specific titles and bookmark books for later reading.
+The project focuses on practicing a clean and structured frontend architecture while working with real API data. Users can browse a large catalogue of public domain books, sort results, search for specific titles and bookmark books for later reading.
 
-The project demonstrates modern frontend practices such as component-based design, API integration, client/server separation in Next.js and lightweight state management using React Context.
+The application is still a work in progress, but it already includes features such as search, sorting and bookmarking. It also demonstrates concepts like component-based design, API integration and React Context to manage bookmarked books in the application.
 
-## Demo
+Future improvements include allowing users to read books directly in the app and organize them into their own personal library, under the "My Collection" section.
+
+## 🌐 Demo
 
 Live demo: https://nextjs-vetus-libris.vercel.app/dashboard
 
-## Features
+## ✨ Features
 
  - Browse books from the Project Gutenberg API
  - Search books by title, author or genre
@@ -18,7 +20,7 @@ Live demo: https://nextjs-vetus-libris.vercel.app/dashboard
  - Bookmark books for later reading
  - Pagination through large book collections
 
-## Tech Stack
+## 💻 Tech Stack
 
  - Next.js
  - React
@@ -27,7 +29,7 @@ Live demo: https://nextjs-vetus-libris.vercel.app/dashboard
  - Lucide React Icons
  - Gutendex (Project Gutenberg API)
 
-## Installation
+## ⚙️ Installation
 
 <details>
 <summary>⚙️ Run the project locally</summary>
@@ -65,8 +67,9 @@ http://localhost:3000
 ```
 </details>
 
-## Screenshots
--
+## 📸 Screenshots
+<img width="1920" height="927" alt="Vetus Libris_dashboard" src="https://github.com/user-attachments/assets/af101e1a-0c00-4853-9fc4-ff02df6b1599" />
+<img width="1920" height="819" alt="Vetus Libris_Book details" src="https://github.com/user-attachments/assets/f6df4d6a-f626-4ed1-9ced-1ec094057620" />
 
-## Author
+## 👩‍💻 Author
 Yvette Baker
