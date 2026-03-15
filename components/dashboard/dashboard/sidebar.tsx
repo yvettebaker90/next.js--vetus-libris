@@ -12,7 +12,7 @@ const pages = [
   },
   { 
     name: "My Collection",
-    href: "/#",
+    href: "/dashboard/collection",
     Icon: BookOpen
   },
   { 
