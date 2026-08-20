@@ -8,10 +8,6 @@ The application is still a work in progress, but it already includes features su
 
 Future improvements include allowing users to read books directly in the app and organize them into their own personal library, under the "My Collection" section.
 
-## 🌐 Demo
-
-Live demo: https://nextjs-vetus-libris.vercel.app/dashboard
-
 ## ✨ Features
 
  - Browse books from the Project Gutenberg API
